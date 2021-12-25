@@ -17,15 +17,15 @@ public class MainPanel : BasePanel
         UITool.GetOrAddComponentInChildren<Button>("BtnQuit").onClick.AddListener(() =>
         {
             GameRoot.Instance.SceneSystem.SetScene(new StartScene());
-            PanelManager.Pop();
+            Pop();
         });
         UITool.GetOrAddComponentInChildren<Button>("BtnMsg").onClick.AddListener(() =>
         {
-            PanelManager.Push(new TaskPanel());
+            Push(new TaskPanel());
         });
         UITool.GetOrAddComponentInChildren<Button>("BtnSetting").onClick.AddListener(() =>
         {
-            PanelManager.Push(new SettingPanel());
+            Push(new SettingPanel());
         });
     }
 }
