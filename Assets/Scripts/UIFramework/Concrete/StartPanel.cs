@@ -20,5 +20,10 @@ public class StartPanel : BasePanel
             Debug.Log("设置按钮被点了");
             PanelManager.Push(new SettingPanel());
         });
+        UITool.GetOrAddComponentInChildren<Button>("BtnPlay").onClick.AddListener(() =>
+        {
+            //点击事件可以写在这里面
+            GameRoot.Instance.SceneSystem.SetScene(new MainScene());
+        });
     }
 }

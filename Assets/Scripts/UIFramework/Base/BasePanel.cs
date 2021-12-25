@@ -59,21 +59,29 @@ public abstract class BasePanel
     /// <summary>
     /// UI进入时执行的操作，只会执行一次
     /// </summary>
-    public virtual void OnEnter()
-    { }
+    public virtual void OnEnter() { }
 
     /// <summary>
     /// UI暂停时执行的操作
     /// </summary>
-    public virtual void OnPause() { }
+    public virtual void OnPause()
+    {
+        UITool.GetOrAddComponent<CanvasGroup>().blocksRaycasts = false;
+    }
 
     /// <summary>
     /// UI继续时执行的操作
     /// </summary>
-    public virtual void OnResume() { }
+    public virtual void OnResume()
+    {
+        UITool.GetOrAddComponent<CanvasGroup>().blocksRaycasts = true;
+    }
 
     /// <summary>
     /// UI退出时执行的操作
     /// </summary>
-    public virtual void OnExit() { }
+    public virtual void OnExit()
+    {
+        UIManager.DestroyUI(UIType);
+    }
 }
